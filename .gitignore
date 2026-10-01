@@ -1,0 +1,15 @@
+.vs/
+**/bin/
+**/obj/
+.env
+.env.*
+!.env.example
+*.user
+*.suo
+node_modules/
+dist/
+.angular/
+out-tsc/
+coverage/
+.idea/
+*.log
