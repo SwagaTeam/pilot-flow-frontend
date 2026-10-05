@@ -1,0 +1,2213 @@
+{
+  "schemaVersion": "1.0",
+  "version": {
+    "id": "00000000-0000-4000-8000-000000000011",
+    "analysisId": "00000000-0000-4000-8000-000000000001",
+    "versionNumber": 1,
+    "revision": 1,
+    "state": "draft",
+    "rulesVersion": "fck-2026-tz-v1",
+    "createdAt": "2026-11-18T10:00:00Z",
+    "updatedAt": "2026-11-18T10:00:00Z",
+    "data": {
+      "title": "Выбор потока — Север",
+      "enterpriseName": "Север (вымышленное предприятие)",
+      "region": "Учебный регион",
+      "activity": "Производство металлических изделий",
+      "projectStartDate": "2026-11-01",
+      "financialPeriod": {
+        "start": "2025-11-01",
+        "end": "2026-10-31"
+      },
+      "activitiesPeriod": {
+        "start": "2026-11-01",
+        "end": "2027-10-31"
+      },
+      "forecastPeriod": {
+        "start": "2026-11-01",
+        "end": "2027-10-31"
+      },
+      "totalRevenue": "400000000",
+      "currency": "RUB",
+      "accountingBasis": "RUB, без НДС; выручка и сырьевая себестоимость",
+      "revenueEvidence": {
+        "source": "ТЗ, контрольный пример",
+        "basis": "Учебный контрольный пример ТЗ",
+        "period": {
+          "start": "2025-11-01",
+          "end": "2026-10-31"
+        },
+        "assessedOn": null,
+        "missingReason": null
+      },
+      "remainderExplanation": null,
+      "nomenclatureComplete": true,
+      "completenessEvidence": {
+        "source": "Подтверждение полного перечня",
+        "basis": "Учебный контрольный пример ТЗ",
+        "period": null,
+        "assessedOn": "2026-11-01",
+        "missingReason": null
+      },
+      "participants": [],
+      "enterpriseInn": null,
+      "familyConclusions": null,
+      "rankingConclusions": null,
+      "laborPeriod": {
+        "start": "2026-05-01",
+        "end": "2026-10-31"
+      }
+    }
+  },
+  "products": [
+    {
+      "id": "00000000-0000-4000-8000-000000000021",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Основание «Стандарт 800»",
+        "unitCode": "piece",
+        "salesVolume": "1000",
+        "revenue": "90000000",
+        "rawMaterialCost": "63000000",
+        "financialEvidence": {
+          "source": "ТЗ и Figma, экран продукции; объём 1000 — допущение фикстуры",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "calendarDurationDays": "18",
+        "durationStart": "Поступление сырья",
+        "durationEnd": "Передача готового изделия",
+        "includesWaiting": true,
+        "durationEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "inProductionPlan": true,
+        "planEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "isOther": false,
+        "productCode": null
+      },
+      "completeness": "complete",
+      "issues": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000022",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Основание «Стандарт 900»",
+        "unitCode": "piece",
+        "salesVolume": "1000",
+        "revenue": "70000000",
+        "rawMaterialCost": "49000000",
+        "financialEvidence": {
+          "source": "ТЗ и Figma, экран продукции; объём 1000 — допущение фикстуры",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "calendarDurationDays": "20",
+        "durationStart": "Поступление сырья",
+        "durationEnd": "Передача готового изделия",
+        "includesWaiting": true,
+        "durationEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "inProductionPlan": true,
+        "planEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "isOther": false,
+        "productCode": null
+      },
+      "completeness": "complete",
+      "issues": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000023",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Основание «Комфорт 800»",
+        "unitCode": "piece",
+        "salesVolume": "1000",
+        "revenue": "65000000",
+        "rawMaterialCost": "39000000",
+        "financialEvidence": {
+          "source": "ТЗ и Figma, экран продукции; объём 1000 — допущение фикстуры",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "calendarDurationDays": "24",
+        "durationStart": "Поступление сырья",
+        "durationEnd": "Передача готового изделия",
+        "includesWaiting": true,
+        "durationEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "inProductionPlan": true,
+        "planEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "isOther": false,
+        "productCode": null
+      },
+      "completeness": "complete",
+      "issues": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000024",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Основание «Комфорт 900»",
+        "unitCode": "piece",
+        "salesVolume": "1000",
+        "revenue": "55000000",
+        "rawMaterialCost": "33000000",
+        "financialEvidence": {
+          "source": "ТЗ и Figma, экран продукции; объём 1000 — допущение фикстуры",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "calendarDurationDays": "26",
+        "durationStart": "Поступление сырья",
+        "durationEnd": "Передача готового изделия",
+        "includesWaiting": true,
+        "durationEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "inProductionPlan": true,
+        "planEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "isOther": false,
+        "productCode": null
+      },
+      "completeness": "complete",
+      "issues": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000025",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Панель стеновая",
+        "unitCode": "piece",
+        "salesVolume": "1000",
+        "revenue": "80000000",
+        "rawMaterialCost": "64000000",
+        "financialEvidence": {
+          "source": "ТЗ и Figma, экран продукции; объём 1000 — допущение фикстуры",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "calendarDurationDays": "12",
+        "durationStart": "Поступление сырья",
+        "durationEnd": "Передача готового изделия",
+        "includesWaiting": true,
+        "durationEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "inProductionPlan": true,
+        "planEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "isOther": false,
+        "productCode": null
+      },
+      "completeness": "complete",
+      "issues": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000026",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Корпус металлический",
+        "unitCode": "piece",
+        "salesVolume": "1000",
+        "revenue": "40000000",
+        "rawMaterialCost": "28000000",
+        "financialEvidence": {
+          "source": "ТЗ и Figma, экран продукции; объём 1000 — допущение фикстуры",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "calendarDurationDays": "36",
+        "durationStart": "Поступление сырья",
+        "durationEnd": "Передача готового изделия",
+        "includesWaiting": true,
+        "durationEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "inProductionPlan": true,
+        "planEvidence": {
+          "source": "ТЗ, контрольный пример",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "isOther": false,
+        "productCode": null
+      },
+      "completeness": "complete",
+      "issues": []
+    }
+  ],
+  "operations": [
+    {
+      "id": "00000000-0000-4000-8000-000000000041",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Резка",
+        "kind": "operation",
+        "workplaceName": "Лазерная резка",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000042",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Гибка",
+        "kind": "operation",
+        "workplaceName": "Гибочный участок",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000043",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Сварка",
+        "kind": "operation",
+        "workplaceName": "Сварочный пост",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000044",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Окраска",
+        "kind": "operation",
+        "workplaceName": "Линия окраски",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000045",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Упаковка",
+        "kind": "operation",
+        "workplaceName": "Упаковочный участок",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000046",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Сборка механизма",
+        "kind": "operation",
+        "workplaceName": "Участок сборки",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000047",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Сборка корпуса",
+        "kind": "operation",
+        "workplaceName": "Участок сборки корпуса",
+        "aggregationCoveragePercent": null,
+        "aggregationEvidence": {
+          "source": null,
+          "basis": null,
+          "period": null,
+          "assessedOn": null,
+          "missingReason": null
+        }
+      }
+    }
+  ],
+  "productRoutes": [
+    {
+      "productId": "00000000-0000-4000-8000-000000000021",
+      "route": {
+        "steps": [
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000100",
+            "operationId": "00000000-0000-4000-8000-000000000041",
+            "position": 1,
+            "durationHours": "0.800000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000101",
+            "operationId": "00000000-0000-4000-8000-000000000042",
+            "position": 2,
+            "durationHours": "0.800000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000102",
+            "operationId": "00000000-0000-4000-8000-000000000043",
+            "position": 3,
+            "durationHours": "0.800000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000103",
+            "operationId": "00000000-0000-4000-8000-000000000044",
+            "position": 4,
+            "durationHours": "0.800000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000104",
+            "operationId": "00000000-0000-4000-8000-000000000045",
+            "position": 5,
+            "durationHours": "0.800000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "productId": "00000000-0000-4000-8000-000000000022",
+      "route": {
+        "steps": [
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000110",
+            "operationId": "00000000-0000-4000-8000-000000000041",
+            "position": 1,
+            "durationHours": "0.880000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000111",
+            "operationId": "00000000-0000-4000-8000-000000000042",
+            "position": 2,
+            "durationHours": "0.880000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000112",
+            "operationId": "00000000-0000-4000-8000-000000000043",
+            "position": 3,
+            "durationHours": "0.880000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000113",
+            "operationId": "00000000-0000-4000-8000-000000000044",
+            "position": 4,
+            "durationHours": "0.880000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000114",
+            "operationId": "00000000-0000-4000-8000-000000000045",
+            "position": 5,
+            "durationHours": "0.880000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "productId": "00000000-0000-4000-8000-000000000023",
+      "route": {
+        "steps": [
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000120",
+            "operationId": "00000000-0000-4000-8000-000000000041",
+            "position": 1,
+            "durationHours": "0.833333",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000121",
+            "operationId": "00000000-0000-4000-8000-000000000042",
+            "position": 2,
+            "durationHours": "0.833333",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000122",
+            "operationId": "00000000-0000-4000-8000-000000000043",
+            "position": 3,
+            "durationHours": "0.833333",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000123",
+            "operationId": "00000000-0000-4000-8000-000000000046",
+            "position": 4,
+            "durationHours": "0.833333",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000124",
+            "operationId": "00000000-0000-4000-8000-000000000044",
+            "position": 5,
+            "durationHours": "0.833333",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000125",
+            "operationId": "00000000-0000-4000-8000-000000000045",
+            "position": 6,
+            "durationHours": "0.833335",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "productId": "00000000-0000-4000-8000-000000000024",
+      "route": {
+        "steps": [
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000130",
+            "operationId": "00000000-0000-4000-8000-000000000041",
+            "position": 1,
+            "durationHours": "0.916667",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000131",
+            "operationId": "00000000-0000-4000-8000-000000000042",
+            "position": 2,
+            "durationHours": "0.916667",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000132",
+            "operationId": "00000000-0000-4000-8000-000000000043",
+            "position": 3,
+            "durationHours": "0.916667",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000133",
+            "operationId": "00000000-0000-4000-8000-000000000046",
+            "position": 4,
+            "durationHours": "0.916667",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000134",
+            "operationId": "00000000-0000-4000-8000-000000000044",
+            "position": 5,
+            "durationHours": "0.916667",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000135",
+            "operationId": "00000000-0000-4000-8000-000000000045",
+            "position": 6,
+            "durationHours": "0.916665",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "productId": "00000000-0000-4000-8000-000000000025",
+      "route": {
+        "steps": [
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000140",
+            "operationId": "00000000-0000-4000-8000-000000000041",
+            "position": 1,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000141",
+            "operationId": "00000000-0000-4000-8000-000000000042",
+            "position": 2,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000142",
+            "operationId": "00000000-0000-4000-8000-000000000044",
+            "position": 3,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000143",
+            "operationId": "00000000-0000-4000-8000-000000000045",
+            "position": 4,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "productId": "00000000-0000-4000-8000-000000000026",
+      "route": {
+        "steps": [
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000150",
+            "operationId": "00000000-0000-4000-8000-000000000041",
+            "position": 1,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000151",
+            "operationId": "00000000-0000-4000-8000-000000000042",
+            "position": 2,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000152",
+            "operationId": "00000000-0000-4000-8000-000000000043",
+            "position": 3,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000153",
+            "operationId": "00000000-0000-4000-8000-000000000047",
+            "position": 4,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000154",
+            "operationId": "00000000-0000-4000-8000-000000000044",
+            "position": 5,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          },
+          {
+            "occurrenceId": "00000000-0000-4000-8000-000000000155",
+            "operationId": "00000000-0000-4000-8000-000000000045",
+            "position": 6,
+            "durationHours": "0.500000",
+            "workplaceName": null,
+            "evidence": {
+              "source": "Фикстура: распределение общего времени по операциям",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "families": [
+    {
+      "id": "00000000-0000-4000-8000-000000000031",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Основания «Стандарт»",
+        "startBoundary": "Поступление сырья",
+        "endBoundary": "Передача готового изделия",
+        "compositionReason": null,
+        "confirmed": true,
+        "confirmationEvidence": {
+          "source": "ТЗ и подтверждённый учебный маршрут",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "route": {
+          "steps": [
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000300",
+              "operationId": "00000000-0000-4000-8000-000000000041",
+              "position": 1,
+              "durationHours": "0.800000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000301",
+              "operationId": "00000000-0000-4000-8000-000000000042",
+              "position": 2,
+              "durationHours": "0.800000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000302",
+              "operationId": "00000000-0000-4000-8000-000000000043",
+              "position": 3,
+              "durationHours": "0.800000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000303",
+              "operationId": "00000000-0000-4000-8000-000000000044",
+              "position": 4,
+              "durationHours": "0.800000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000304",
+              "operationId": "00000000-0000-4000-8000-000000000045",
+              "position": 5,
+              "durationHours": "0.800000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            }
+          ]
+        }
+      },
+      "productIds": [
+        "00000000-0000-4000-8000-000000000021",
+        "00000000-0000-4000-8000-000000000022"
+      ]
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000032",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Основания «Комфорт»",
+        "startBoundary": "Поступление сырья",
+        "endBoundary": "Передача готового изделия",
+        "compositionReason": null,
+        "confirmed": true,
+        "confirmationEvidence": {
+          "source": "ТЗ и подтверждённый учебный маршрут",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "route": {
+          "steps": [
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000310",
+              "operationId": "00000000-0000-4000-8000-000000000041",
+              "position": 1,
+              "durationHours": "0.833333",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000311",
+              "operationId": "00000000-0000-4000-8000-000000000042",
+              "position": 2,
+              "durationHours": "0.833333",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000312",
+              "operationId": "00000000-0000-4000-8000-000000000043",
+              "position": 3,
+              "durationHours": "0.833333",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000313",
+              "operationId": "00000000-0000-4000-8000-000000000046",
+              "position": 4,
+              "durationHours": "0.833333",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000314",
+              "operationId": "00000000-0000-4000-8000-000000000044",
+              "position": 5,
+              "durationHours": "0.833333",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000315",
+              "operationId": "00000000-0000-4000-8000-000000000045",
+              "position": 6,
+              "durationHours": "0.833335",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            }
+          ]
+        }
+      },
+      "productIds": [
+        "00000000-0000-4000-8000-000000000023",
+        "00000000-0000-4000-8000-000000000024"
+      ]
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000033",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Металлические панели",
+        "startBoundary": "Поступление сырья",
+        "endBoundary": "Передача готового изделия",
+        "compositionReason": null,
+        "confirmed": true,
+        "confirmationEvidence": {
+          "source": "ТЗ и подтверждённый учебный маршрут",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "route": {
+          "steps": [
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000320",
+              "operationId": "00000000-0000-4000-8000-000000000041",
+              "position": 1,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000321",
+              "operationId": "00000000-0000-4000-8000-000000000042",
+              "position": 2,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000322",
+              "operationId": "00000000-0000-4000-8000-000000000044",
+              "position": 3,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000323",
+              "operationId": "00000000-0000-4000-8000-000000000045",
+              "position": 4,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            }
+          ]
+        }
+      },
+      "productIds": [
+        "00000000-0000-4000-8000-000000000025"
+      ]
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000034",
+      "versionId": "00000000-0000-4000-8000-000000000011",
+      "data": {
+        "name": "Индивидуальные корпуса",
+        "startBoundary": "Поступление сырья",
+        "endBoundary": "Передача готового изделия",
+        "compositionReason": null,
+        "confirmed": true,
+        "confirmationEvidence": {
+          "source": "ТЗ и подтверждённый учебный маршрут",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "route": {
+          "steps": [
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000330",
+              "operationId": "00000000-0000-4000-8000-000000000041",
+              "position": 1,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000331",
+              "operationId": "00000000-0000-4000-8000-000000000042",
+              "position": 2,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000332",
+              "operationId": "00000000-0000-4000-8000-000000000043",
+              "position": 3,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000333",
+              "operationId": "00000000-0000-4000-8000-000000000047",
+              "position": 4,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000334",
+              "operationId": "00000000-0000-4000-8000-000000000044",
+              "position": 5,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            },
+            {
+              "occurrenceId": "00000000-0000-4000-8000-000000000335",
+              "operationId": "00000000-0000-4000-8000-000000000045",
+              "position": 6,
+              "durationHours": "0.500000",
+              "workplaceName": null,
+              "evidence": {
+                "source": "Фикстура: распределение общего времени по операциям",
+                "basis": "Учебный контрольный пример ТЗ",
+                "period": null,
+                "assessedOn": "2026-11-01",
+                "missingReason": null
+              }
+            }
+          ]
+        }
+      },
+      "productIds": [
+        "00000000-0000-4000-8000-000000000026"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "familyId": "00000000-0000-4000-8000-000000000031",
+      "data": {
+        "salesGrowthPercent": "35",
+        "salesGrowthEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "loadPercent": "65",
+        "loadActual": "4.200000",
+        "loadCapacity": "4.200000",
+        "loadUnit": null,
+        "loadEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "productionType": "largeSeries",
+        "productionTypeEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "laborMode": "manual",
+        "laborHoursPerUnit": "4.2",
+        "directLaborHours": "4.200000",
+        "outputQuantity": "4.200000",
+        "laborUnitCode": "piece",
+        "laborBaseQuantity": "1",
+        "laborEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-05-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "comparabilityExplanation": "Человеко-часы на одну штуку"
+      }
+    },
+    {
+      "familyId": "00000000-0000-4000-8000-000000000032",
+      "data": {
+        "salesGrowthPercent": "20",
+        "salesGrowthEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "loadPercent": "85",
+        "loadActual": "4.200000",
+        "loadCapacity": "4.200000",
+        "loadUnit": null,
+        "loadEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "productionType": "mediumSeries",
+        "productionTypeEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "laborMode": "manual",
+        "laborHoursPerUnit": "5",
+        "directLaborHours": "4.200000",
+        "outputQuantity": "4.200000",
+        "laborUnitCode": "piece",
+        "laborBaseQuantity": "1",
+        "laborEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-05-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "comparabilityExplanation": "Человеко-часы на одну штуку"
+      }
+    },
+    {
+      "familyId": "00000000-0000-4000-8000-000000000033",
+      "data": {
+        "salesGrowthPercent": "5",
+        "salesGrowthEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "loadPercent": "40",
+        "loadActual": "4.200000",
+        "loadCapacity": "4.200000",
+        "loadUnit": null,
+        "loadEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "productionType": "smallSeries",
+        "productionTypeEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "laborMode": "manual",
+        "laborHoursPerUnit": "2.5",
+        "directLaborHours": "4.200000",
+        "outputQuantity": "4.200000",
+        "laborUnitCode": "piece",
+        "laborBaseQuantity": "1",
+        "laborEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-05-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "comparabilityExplanation": "Человеко-часы на одну штуку"
+      }
+    },
+    {
+      "familyId": "00000000-0000-4000-8000-000000000034",
+      "data": {
+        "salesGrowthPercent": null,
+        "salesGrowthEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-11-01",
+            "end": "2027-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "loadPercent": null,
+        "loadActual": "4.200000",
+        "loadCapacity": "4.200000",
+        "loadUnit": null,
+        "loadEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2025-11-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "productionType": null,
+        "productionTypeEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": null,
+          "assessedOn": "2026-11-01",
+          "missingReason": null
+        },
+        "laborMode": "manual",
+        "laborHoursPerUnit": null,
+        "directLaborHours": "4.200000",
+        "outputQuantity": "4.200000",
+        "laborUnitCode": "piece",
+        "laborBaseQuantity": "1",
+        "laborEvidence": {
+          "source": "ТЗ",
+          "basis": "Учебный контрольный пример ТЗ",
+          "period": {
+            "start": "2026-05-01",
+            "end": "2026-10-31"
+          },
+          "assessedOn": null,
+          "missingReason": null
+        },
+        "comparabilityExplanation": "Человеко-часы на одну штуку"
+      }
+    }
+  ],
+  "evaluation": {
+    "versionId": "00000000-0000-4000-8000-000000000011",
+    "revision": 1,
+    "rulesVersion": "fck-2026-tz-v1",
+    "calculatedAt": "2026-11-18T10:00:00Z",
+    "reconciledRevenue": "400000000",
+    "remainderRevenue": "0",
+    "issues": [],
+    "families": [
+      {
+        "familyId": "00000000-0000-4000-8000-000000000031",
+        "revenue": "160000000",
+        "rawMaterialCost": "112000000",
+        "marginIncome": "48000000",
+        "revenueSharePercent": "40",
+        "marginPercent": "30",
+        "maxCalendarDurationDays": "20",
+        "admission": "admitted",
+        "issues": [],
+        "scores": [
+          {
+            "criterion": "revenueShare",
+            "value": "40",
+            "unit": "percent",
+            "score": "3",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_REVENUESHARE",
+            "explanation": "Максимальная доля среди допущенных потоков"
+          },
+          {
+            "criterion": "margin",
+            "value": "30",
+            "unit": "percent",
+            "score": "1.5",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_MARGIN",
+            "explanation": "Положительная маржинальность, но не максимум"
+          },
+          {
+            "criterion": "salesGrowth",
+            "value": "35",
+            "unit": "percent",
+            "score": "1.5",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_SALESGROWTH",
+            "explanation": "Рост больше 30%"
+          },
+          {
+            "criterion": "load",
+            "value": "65",
+            "unit": "percent",
+            "score": "2",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_LOAD",
+            "explanation": "Загрузка от 50% до 80% включительно"
+          },
+          {
+            "criterion": "productionType",
+            "value": null,
+            "unit": "code",
+            "score": "3",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_PRODUCTIONTYPE",
+            "explanation": "Крупносерийное производство"
+          },
+          {
+            "criterion": "labor",
+            "value": "4.2",
+            "unit": "person-hour/piece",
+            "score": "2",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_LABOR",
+            "explanation": "Второе значение трудоёмкости среди допущенных"
+          }
+        ],
+        "knownScoreSum": "13",
+        "calculatedCriterionCount": 6,
+        "totalScore": "13",
+        "rank": 1,
+        "isProvisional": false,
+        "canSelectRanked": true
+      },
+      {
+        "familyId": "00000000-0000-4000-8000-000000000032",
+        "revenue": "120000000",
+        "rawMaterialCost": "72000000",
+        "marginIncome": "48000000",
+        "revenueSharePercent": "30",
+        "marginPercent": "40",
+        "maxCalendarDurationDays": "26",
+        "admission": "admitted",
+        "issues": [],
+        "scores": [
+          {
+            "criterion": "revenueShare",
+            "value": "30",
+            "unit": "percent",
+            "score": "2",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_REVENUESHARE",
+            "explanation": "Вторая доля среди допущенных"
+          },
+          {
+            "criterion": "margin",
+            "value": "40",
+            "unit": "percent",
+            "score": "3",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_MARGIN",
+            "explanation": "Максимальная маржинальность"
+          },
+          {
+            "criterion": "salesGrowth",
+            "value": "20",
+            "unit": "percent",
+            "score": "1",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_SALESGROWTH",
+            "explanation": "Рост от 10% до 30% включительно"
+          },
+          {
+            "criterion": "load",
+            "value": "85",
+            "unit": "percent",
+            "score": "1",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_LOAD",
+            "explanation": "Загрузка выше 80%"
+          },
+          {
+            "criterion": "productionType",
+            "value": null,
+            "unit": "code",
+            "score": "2",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_PRODUCTIONTYPE",
+            "explanation": "Среднесерийное производство"
+          },
+          {
+            "criterion": "labor",
+            "value": "5",
+            "unit": "person-hour/piece",
+            "score": "3",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_LABOR",
+            "explanation": "Максимальная трудоёмкость"
+          }
+        ],
+        "knownScoreSum": "12",
+        "calculatedCriterionCount": 6,
+        "totalScore": "12",
+        "rank": 2,
+        "isProvisional": false,
+        "canSelectRanked": true
+      },
+      {
+        "familyId": "00000000-0000-4000-8000-000000000033",
+        "revenue": "80000000",
+        "rawMaterialCost": "64000000",
+        "marginIncome": "16000000",
+        "revenueSharePercent": "20",
+        "marginPercent": "20",
+        "maxCalendarDurationDays": "12",
+        "admission": "admitted",
+        "issues": [],
+        "scores": [
+          {
+            "criterion": "revenueShare",
+            "value": "20",
+            "unit": "percent",
+            "score": "1",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_REVENUESHARE",
+            "explanation": "Прочая допущенная доля не ниже 10%"
+          },
+          {
+            "criterion": "margin",
+            "value": "20",
+            "unit": "percent",
+            "score": "1.5",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_MARGIN",
+            "explanation": "Положительная маржинальность, но не максимум"
+          },
+          {
+            "criterion": "salesGrowth",
+            "value": "5",
+            "unit": "percent",
+            "score": "0.5",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_SALESGROWTH",
+            "explanation": "Рост от 0% до 10% невключительно"
+          },
+          {
+            "criterion": "load",
+            "value": "40",
+            "unit": "percent",
+            "score": "3",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_LOAD",
+            "explanation": "Загрузка ниже 50%"
+          },
+          {
+            "criterion": "productionType",
+            "value": null,
+            "unit": "code",
+            "score": "1",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_PRODUCTIONTYPE",
+            "explanation": "Мелкосерийное производство"
+          },
+          {
+            "criterion": "labor",
+            "value": "2.5",
+            "unit": "person-hour/piece",
+            "score": "0.5",
+            "status": "complete",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "FCK_LABOR",
+            "explanation": "Прочая трудоёмкость"
+          }
+        ],
+        "knownScoreSum": "7.5",
+        "calculatedCriterionCount": 6,
+        "totalScore": "7.5",
+        "rank": 3,
+        "isProvisional": false,
+        "canSelectRanked": false
+      },
+      {
+        "familyId": "00000000-0000-4000-8000-000000000034",
+        "revenue": "40000000",
+        "rawMaterialCost": "28000000",
+        "marginIncome": "12000000",
+        "revenueSharePercent": "10",
+        "marginPercent": "30",
+        "maxCalendarDurationDays": "36",
+        "admission": "excluded",
+        "issues": [
+          {
+            "code": "DURATION_EXCEEDED",
+            "severity": "error",
+            "path": "/products/00000000-0000-4000-8000-000000000026/data/calendarDurationDays",
+            "message": "36 календарных дней превышают 30",
+            "suggestion": "Выберите допущенный поток; исправляйте срок только при наличии достоверных данных",
+            "entityId": "00000000-0000-4000-8000-000000000026"
+          }
+        ],
+        "scores": [
+          {
+            "criterion": "revenueShare",
+            "value": "10",
+            "unit": "percent",
+            "score": null,
+            "status": "notApplicable",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "NOT_ADMITTED",
+            "explanation": "Баллы не начисляются: поток не допущен"
+          },
+          {
+            "criterion": "margin",
+            "value": "30",
+            "unit": "percent",
+            "score": null,
+            "status": "notApplicable",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "NOT_ADMITTED",
+            "explanation": "Баллы не начисляются: поток не допущен"
+          },
+          {
+            "criterion": "salesGrowth",
+            "value": null,
+            "unit": "percent",
+            "score": null,
+            "status": "notApplicable",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "NOT_ADMITTED",
+            "explanation": "Баллы не начисляются: поток не допущен"
+          },
+          {
+            "criterion": "load",
+            "value": null,
+            "unit": "percent",
+            "score": null,
+            "status": "notApplicable",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "NOT_ADMITTED",
+            "explanation": "Баллы не начисляются: поток не допущен"
+          },
+          {
+            "criterion": "productionType",
+            "value": null,
+            "unit": "code",
+            "score": null,
+            "status": "notApplicable",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "NOT_ADMITTED",
+            "explanation": "Баллы не начисляются: поток не допущен"
+          },
+          {
+            "criterion": "labor",
+            "value": null,
+            "unit": "person-hour/piece",
+            "score": null,
+            "status": "notApplicable",
+            "evidence": {
+              "source": "ТЗ, контрольный пример",
+              "basis": "Учебный контрольный пример ТЗ",
+              "period": null,
+              "assessedOn": "2026-11-01",
+              "missingReason": null
+            },
+            "issues": [],
+            "ruleCode": "NOT_ADMITTED",
+            "explanation": "Баллы не начисляются: поток не допущен"
+          }
+        ],
+        "knownScoreSum": "0",
+        "calculatedCriterionCount": 0,
+        "totalScore": null,
+        "rank": null,
+        "isProvisional": false,
+        "canSelectRanked": false
+      }
+    ],
+    "leaderFamilyIds": [
+      "00000000-0000-4000-8000-000000000031"
+    ],
+    "canRecommend": true,
+    "canFinalizeRanked": true
+  },
+  "protocol": {
+    "agreementNumber": "DEMO-001",
+    "agreementDate": "2026-11-01",
+    "enterpriseParty": "Север (учебный пример)",
+    "partnerParty": "РЦК (учебный пример)",
+    "signingPlace": "Учебный город",
+    "protocolDate": "2026-11-18",
+    "preparedBy": {
+      "fullName": "Составитель учебного протокола",
+      "position": "ГД-1 по экономике и финансам"
+    },
+    "approvedBy": {
+      "fullName": "Утверждающий учебного протокола",
+      "position": "Генеральный директор"
+    },
+    "conclusions": "Приоритетный поток — Стандарт, 13 баллов.",
+    "protocolNumber": "04"
+  },
+  "selection": {
+    "familyId": "00000000-0000-4000-8000-000000000031",
+    "mode": "ranked",
+    "dominantProductId": null,
+    "justification": null,
+    "directBasisEvidence": {
+      "source": null,
+      "basis": null,
+      "period": null,
+      "assessedOn": null,
+      "missingReason": null
+    },
+    "managerDecisionReference": "Учебное решение №1 от 18.11.2026"
+  },
+  "familyMatrix": {
+    "versionId": "00000000-0000-4000-8000-000000000011",
+    "revision": 1,
+    "products": [
+      {
+        "productId": "00000000-0000-4000-8000-000000000021",
+        "familyId": "00000000-0000-4000-8000-000000000031",
+        "marginIncome": "27000000",
+        "marginIncomePerUnit": "27000",
+        "marginPercent": "30.0",
+        "revenueSharePercent": "22.500",
+        "routeDurationHours": "4.000000",
+        "operationOccurrenceCount": 5
+      },
+      {
+        "productId": "00000000-0000-4000-8000-000000000022",
+        "familyId": "00000000-0000-4000-8000-000000000031",
+        "marginIncome": "21000000",
+        "marginIncomePerUnit": "21000",
+        "marginPercent": "30.0",
+        "revenueSharePercent": "17.500",
+        "routeDurationHours": "4.400000",
+        "operationOccurrenceCount": 5
+      },
+      {
+        "productId": "00000000-0000-4000-8000-000000000023",
+        "familyId": "00000000-0000-4000-8000-000000000032",
+        "marginIncome": "26000000",
+        "marginIncomePerUnit": "26000",
+        "marginPercent": "40.0",
+        "revenueSharePercent": "16.2500",
+        "routeDurationHours": "5.000000",
+        "operationOccurrenceCount": 6
+      },
+      {
+        "productId": "00000000-0000-4000-8000-000000000024",
+        "familyId": "00000000-0000-4000-8000-000000000032",
+        "marginIncome": "22000000",
+        "marginIncomePerUnit": "22000",
+        "marginPercent": "40.0",
+        "revenueSharePercent": "13.7500",
+        "routeDurationHours": "5.500000",
+        "operationOccurrenceCount": 6
+      },
+      {
+        "productId": "00000000-0000-4000-8000-000000000025",
+        "familyId": "00000000-0000-4000-8000-000000000033",
+        "marginIncome": "16000000",
+        "marginIncomePerUnit": "16000",
+        "marginPercent": "20.0",
+        "revenueSharePercent": "20.0",
+        "routeDurationHours": "2.000000",
+        "operationOccurrenceCount": 4
+      },
+      {
+        "productId": "00000000-0000-4000-8000-000000000026",
+        "familyId": "00000000-0000-4000-8000-000000000034",
+        "marginIncome": "12000000",
+        "marginIncomePerUnit": "12000",
+        "marginPercent": "30.0",
+        "revenueSharePercent": "10.0",
+        "routeDurationHours": "3.000000",
+        "operationOccurrenceCount": 6
+      }
+    ],
+    "cycles": [
+      {
+        "familyId": "00000000-0000-4000-8000-000000000031",
+        "cycleDifferencePercent": "10",
+        "status": "withinRecommendation",
+        "issues": []
+      },
+      {
+        "familyId": "00000000-0000-4000-8000-000000000032",
+        "cycleDifferencePercent": "10",
+        "status": "withinRecommendation",
+        "issues": []
+      },
+      {
+        "familyId": "00000000-0000-4000-8000-000000000033",
+        "cycleDifferencePercent": "0",
+        "status": "withinRecommendation",
+        "issues": []
+      },
+      {
+        "familyId": "00000000-0000-4000-8000-000000000034",
+        "cycleDifferencePercent": "0",
+        "status": "withinRecommendation",
+        "issues": []
+      }
+    ],
+    "issues": []
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "openapi": "3.0.3 — validated",
+  "operations": 45,
+  "schemas": 51,
+  "validatedExamples": 313,
+  "sqlSyntax": "pglast passed",
+  "databaseTests": [
+    {
+      "test": "DDL executed on PostgreSQL WASM (PGlite)",
+      "status": "passed"
+    },
+    {
+      "test": "One draft per analysis",
+      "status": "passed"
+    },
+    {
+      "test": "Cross-version membership rejected",
+      "status": "passed"
+    },
+    {
+      "test": "Product cannot belong to two families",
+      "status": "passed"
+    },
+    {
+      "test": "Null cost stays null in aggregation",
+      "status": "passed"
+    },
+    {
+      "test": "Repeated operation allowed as separate occurrence",
+      "status": "passed"
+    },
+    {
+      "test": "Duplicate route position rejected",
+      "status": "passed"
+    },
+    {
+      "test": "Referenced operation deletion rejected",
+      "status": "passed"
+    },
+    {
+      "test": "Negative duration rejected",
+      "status": "passed"
+    },
+    {
+      "test": "Revision must advance",
+      "status": "passed"
+    },
+    {
+      "test": "Stale expected revision updates no rows",
+      "status": "passed"
+    },
+    {
+      "test": "Cannot fix without decision",
+      "status": "passed"
+    },
+    {
+      "test": "Decision + fixation commit atomically",
+      "status": "passed"
+    },
+    {
+      "test": "Fixed product cannot change",
+      "status": "passed"
+    },
+    {
+      "test": "Fixed route cannot delete",
+      "status": "passed"
+    },
+    {
+      "test": "Fixed version cannot reopen",
+      "status": "passed"
+    },
+    {
+      "test": "Decision immutable",
+      "status": "passed"
+    },
+    {
+      "test": "Rules immutable",
+      "status": "passed"
+    },
+    {
+      "test": "New draft after fixation permitted",
+      "status": "passed"
+    }
+  ],
+  "arithmeticChecks": [
+    "load:49.9",
+    "load:50",
+    "load:80",
+    "load:80.1",
+    "growth:0",
+    "growth:10",
+    "growth:30",
+    "growth:30.1",
+    "growth:-1",
+    "golden:0",
+    "golden:1",
+    "golden:2",
+    "margin income 124000000"
+  ],
+  "limits": [
+    "ASP.NET implementation not built; no .NET SDK in current environment",
+    "No production PostgreSQL server installed; SQL execution verified on PGlite PostgreSQL WASM",
+    "Mock responses are fixtures; this package is an API/database contract, not the backend"
+  ],
+  "figmaReview": "41 screens reviewed visually in browser; mapping in figma-api-map.csv",
+  "mockTests": [
+    {
+      "operation": "getMe",
+      "passed": true
+    },
+    {
+      "operation": "getRules",
+      "passed": true
+    },
+    {
+      "operation": "listAnalyses",
+      "passed": true
+    },
+    {
+      "operation": "getAnalysis",
+      "passed": true
+    },
+    {
+      "operation": "listVersions",
+      "passed": true
+    },
+    {
+      "operation": "getVersion",
+      "passed": true
+    },
+    {
+      "operation": "listProducts",
+      "passed": true
+    },
+    {
+      "operation": "getProduct",
+      "passed": true
+    },
+    {
+      "operation": "listOperations",
+      "passed": true
+    },
+    {
+      "operation": "getOperation",
+      "passed": true
+    },
+    {
+      "operation": "listFamilies",
+      "passed": true
+    },
+    {
+      "operation": "getFamily",
+      "passed": true
+    },
+    {
+      "operation": "getProductRoute",
+      "passed": true
+    },
+    {
+      "operation": "suggestFamilies",
+      "passed": true
+    },
+    {
+      "operation": "getFamilyMetrics",
+      "passed": true
+    },
+    {
+      "operation": "evaluateVersion",
+      "passed": true
+    },
+    {
+      "operation": "getProtocol",
+      "passed": true
+    },
+    {
+      "operation": "getSelection",
+      "passed": true
+    },
+    {
+      "operation": "validateVersion",
+      "passed": true
+    },
+    {
+      "operation": "previewProtocol",
+      "passed": true
+    },
+    {
+      "operation": "listDecisions",
+      "passed": true
+    },
+    {
+      "operation": "getDecision",
+      "passed": true
+    },
+    {
+      "operation": "exportDraft",
+      "passed": true
+    },
+    {
+      "operation": "exportDecision",
+      "passed": true
+    },
+    {
+      "operation": "getFamilyMatrix",
+      "passed": true
+    },
+    {
+      "operation": "getAssignmentOptions",
+      "passed": true
+    },
+    {
+      "operation": "getDirectSelectionOptions",
+      "passed": true
+    },
+    {
+      "staticFiles": true
+    }
+  ],
+  "swaggerBrowserCheck": "Loaded in browser; all endpoints and schema list visible"
+}

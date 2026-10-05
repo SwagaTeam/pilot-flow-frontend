@@ -1,0 +1,135 @@
+{
+  "source": "ТЗ, приложение Б; proposed rules fck-2026-tz-v1",
+  "admission": [
+    {
+      "share": "9.99",
+      "days": "30",
+      "plan": true,
+      "expected": "excluded"
+    },
+    {
+      "share": "10",
+      "days": "30",
+      "plan": true,
+      "expected": "admitted"
+    },
+    {
+      "share": "10",
+      "days": "30.1",
+      "plan": true,
+      "expected": "excluded"
+    },
+    {
+      "share": "20",
+      "days": "36",
+      "plan": null,
+      "expected": "excluded",
+      "alsoMissing": [
+        "plan"
+      ]
+    },
+    {
+      "share": "20",
+      "days": "20",
+      "plan": null,
+      "expected": "unknown"
+    }
+  ],
+  "load": [
+    {
+      "value": "49.9",
+      "score": "3"
+    },
+    {
+      "value": "50",
+      "score": "2"
+    },
+    {
+      "value": "80",
+      "score": "2"
+    },
+    {
+      "value": "80.1",
+      "score": "1"
+    }
+  ],
+  "growth": [
+    {
+      "value": "0",
+      "score": "0.5"
+    },
+    {
+      "value": "10",
+      "score": "1"
+    },
+    {
+      "value": "30",
+      "score": "1"
+    },
+    {
+      "value": "30.1",
+      "score": "1.5"
+    },
+    {
+      "value": "-1",
+      "score": null
+    }
+  ],
+  "rankedSelection": [
+    {
+      "rank": 1,
+      "score": "6.5",
+      "justification": null,
+      "allowed": true
+    },
+    {
+      "rank": 2,
+      "score": "7",
+      "justification": "Подтверждённый заказ вне модели",
+      "allowed": true
+    },
+    {
+      "rank": 2,
+      "score": "6.5",
+      "justification": "Обстоятельство вне модели",
+      "allowed": false
+    },
+    {
+      "rank": 2,
+      "score": "12",
+      "justification": null,
+      "allowed": false
+    },
+    {
+      "rank": 3,
+      "score": "7.5",
+      "justification": "Любое",
+      "allowed": false
+    }
+  ],
+  "denseRanks": {
+    "values": [
+      "40",
+      "40",
+      "30",
+      "10"
+    ],
+    "ranks": [
+      1,
+      1,
+      2,
+      3
+    ]
+  },
+  "financial": {
+    "revenue": "400000000",
+    "cost": "276000000",
+    "marginIncome": "124000000"
+  },
+  "goldenScores": {
+    "standard": "13",
+    "comfort": "12",
+    "panels": "7.5",
+    "cases": null
+  }
+}
