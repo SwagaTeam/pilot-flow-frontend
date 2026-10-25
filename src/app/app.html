@@ -1,1 +1,104 @@
-<main class="content"><h1>Пилотный поток</h1><router-outlet /></main>
+<a href="#content" class="skip-link">К содержимому</a>
+<header class="app-header">
+  <button
+    class="menu-toggle"
+    aria-label="Открыть навигацию"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="menuOpen.set(!menuOpen())"
+  >
+    ☰
+  </button>
+  <a class="brand" routerLink="/preparation">Пилотный поток</a>
+  <div class="breadcrumb">
+    {{ store.version()?.data?.enterpriseName || 'Анализ предприятия' }}
+    <span>/</span>
+    Анализ №
+    {{ store.protocol()?.protocolNumber || store.version()?.versionNumber || '—' }}
+  </div>
+  <a class="environment" routerLink="/connection">
+    {{ store.api.mode() === 'demo' ? 'Учебные данные' : 'Рабочий API' }}
+    <span aria-hidden="true">⌄</span>
+  </a>
+</header>
+<div class="app-layout">
+  <aside class="sidebar" [class.open]="menuOpen()">
+    <nav aria-label="Этапы анализа">
+      @for (group of groups; track group.title) {
+        <div class="nav-group">
+          <p>{{ group.title }}</p>
+          @for (item of group.items; track item.path) {
+            <a
+              [routerLink]="item.path"
+              [class.active]="active(item.path)"
+              [attr.aria-current]="active(item.path) ? 'page' : null"
+            >
+              {{ item.label }}
+            </a>
+          }
+        </div>
+      }
+    </nav>
+    <div class="sidebar-bottom">
+      <small>
+        {{ store.version()?.state === 'fixed' ? 'Решение зафиксировано' : 'Черновик анализа' }}
+      </small>
+      <span>Оператор</span>
+      <strong>{{ store.identity()?.displayName || 'Не подключён' }}</strong>
+      <a routerLink="/connection">Анализы и подключение</a>
+    </div>
+  </aside>
+  <main id="content" class="content" tabindex="-1">
+    <div class="content-body">
+      @if (store.error(); as error) {
+        <div class="error-panel" role="alert">
+          <strong>{{ error.message }}</strong>
+          <pf-issues [issues]="error.issues" />
+          @if (error.traceId) {
+            <small>Код: {{ error.code }} · запрос {{ error.traceId }}</small>
+          }
+          <div class="inline-action">
+            <button class="button" (click)="store.open()" [disabled]="store.busy()">
+              Перечитать анализ
+            </button>
+            <a routerLink="/connection">Подключение</a>
+            <button class="text-button" (click)="store.error.set(null)">Закрыть</button>
+          </div>
+        </div>
+      }
+      @if (store.notice()) {
+        <div class="callout success" role="status">{{ store.notice() }}</div>
+      }
+      @if (url().startsWith('/connection')) {
+        <router-outlet />
+      } @else if (store.busy()) {
+        <div class="loading" role="status">
+          <span class="spinner"></span>
+          <h1>Загружаем анализ</h1>
+          <p>Проверяем продукцию, семейства и расчёты…</p>
+        </div>
+      } @else if (store.version()) {
+        <router-outlet />
+      } @else if (!store.error()) {
+        <div class="empty">
+          <h1>Откройте анализ</h1>
+          <a routerLink="/connection" class="button primary">К списку анализов</a>
+        </div>
+      }
+    </div>
+    <footer class="app-footer">
+      <span>
+        {{
+          store.api.mode() === 'demo'
+            ? 'Учебный пример · только просмотр'
+            : store.version()?.state === 'fixed'
+              ? 'Зафиксированная версия'
+              : 'Черновик сохранён'
+        }}
+        @if (store.version()?.updatedAt) {
+          · {{ store.version()?.updatedAt | date: 'dd.MM.yyyy, HH:mm' }}
+        }
+      </span>
+      <span>{{ store.saving() ? 'Сохраняем…' : 'Пилотный поток' }}</span>
+    </footer>
+  </main>
+</div>

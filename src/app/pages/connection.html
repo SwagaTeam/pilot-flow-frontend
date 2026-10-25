@@ -1,0 +1,77 @@
+<pf-page-heading
+  title="Анализы и подключение"
+  subtitle="Подключите рабочие данные или изучите интерфейс на учебном примере."
+/>
+<div class="callout">
+  <strong>Учебный пример доступен без подключения</strong>
+  <p>
+    В нём можно просматривать все разделы. Изменения и документы сохраняются только через рабочий
+    API.
+  </p>
+  <button class="button" (click)="demo()" [disabled]="busy()">Открыть учебный анализ</button>
+</div>
+<h2>Подключение к API</h2>
+<form #connection="ngForm" (ngSubmit)="connect()">
+  <label>
+    Bearer JWT
+    <input
+      type="password"
+      name="token"
+      autocomplete="off"
+      required
+      [(ngModel)]="token"
+      placeholder="Токен от вашего поставщика авторизации"
+    />
+    <small>
+      Токен используется только в памяти этой вкладки. После обновления страницы его нужно ввести
+      заново.
+    </small>
+  </label>
+  <p class="muted">
+    Запросы идут на /api/v1 текущего сайта. При локальном запуске прокси направляет их на
+    localhost:5037.
+  </p>
+  <button class="primary" [disabled]="busy() || connection.invalid">
+    {{ busy() ? 'Подключаемся…' : 'Подключиться' }}
+  </button>
+</form>
+@if (connected()) {
+  <h2>Мои анализы</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Анализ</th>
+          <th>Предприятие</th>
+          <th>Версия</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (analysis of analyses(); track analysis.id) {
+          <tr>
+            <td>{{ analysis.version.data.title }}</td>
+            <td>{{ analysis.version.data.enterpriseName || 'Не указано' }}</td>
+            <td>{{ analysis.version.versionNumber }}</td>
+            <td>
+              <button class="text-button" [disabled]="busy()" (click)="open(analysis)">
+                Открыть
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4">Анализов пока нет. Создайте первый.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <form class="toolbar" #createForm="ngForm" (ngSubmit)="create()">
+    <label class="search">
+      Название нового анализа
+      <input name="title" required maxlength="300" [(ngModel)]="title" />
+    </label>
+    <button class="button primary" [disabled]="busy() || createForm.invalid">Создать анализ</button>
+  </form>
+}
