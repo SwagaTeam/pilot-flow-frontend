@@ -1,0 +1,129 @@
+<a class="back-link" routerLink="/products">← Продукция предприятия</a>
+<pf-page-heading
+  [title]="isNew ? 'Добавить продукцию' : 'Исходные данные продукции'"
+  [subtitle]="draft.name || 'Заполните известные данные. Неизвестные значения оставьте пустыми.'"
+/>
+@if (isNew || product) {
+  <pf-issues [issues]="product?.issues ?? []" />
+  <form #form="ngForm" (ngSubmit)="save()">
+    <div class="form-grid">
+      <label>
+        Наименование
+        <input required maxlength="300" name="name" [(ngModel)]="draft.name" />
+      </label>
+      <label>
+        Код продукции
+        <input maxlength="100" name="code" [(ngModel)]="draft.productCode" />
+      </label>
+      <label>
+        Объём продаж
+        <input
+          name="volume"
+          inputmode="decimal"
+          pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+          [(ngModel)]="draft.salesVolume"
+          (ngModelChange)="draft.salesVolume = $event || null"
+        />
+      </label>
+      <label>
+        Единица измерения
+        <select name="unit" [(ngModel)]="draft.unitCode">
+          <option value="piece">Штука</option>
+          <option value="ton">Тонна</option>
+          <option value="kg">Килограмм</option>
+          <option value="m2">м²</option>
+          <option [value]="draft.unitCode">{{ draft.unitCode }}</option>
+        </select>
+      </label>
+      <label>
+        Выручка, ₽
+        <input
+          name="revenue"
+          inputmode="decimal"
+          pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+          [(ngModel)]="draft.revenue"
+          (ngModelChange)="draft.revenue = $event || null"
+        />
+      </label>
+      <label>
+        Сырьевая себестоимость, ₽
+        <input
+          name="raw"
+          inputmode="decimal"
+          pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+          [(ngModel)]="draft.rawMaterialCost"
+          (ngModelChange)="draft.rawMaterialCost = $event || null"
+          placeholder="Неизвестно"
+        />
+        <small>Неизвестное значение не считается нулём.</small>
+      </label>
+      <label class="span-2">
+        Источник финансовых данных
+        <input name="financialSource" [(ngModel)]="draft.financialEvidence.source" />
+      </label>
+      @if (draft.rawMaterialCost === null || draft.revenue === null) {
+        <label class="span-2">
+          Причина отсутствия финансовых данных
+          <input name="financialMissing" [(ngModel)]="draft.financialEvidence.missingReason" />
+        </label>
+      }
+      <label>
+        Календарная длительность, дней
+        <input
+          name="duration"
+          inputmode="decimal"
+          pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+          [(ngModel)]="draft.calendarDurationDays"
+          (ngModelChange)="draft.calendarDurationDays = $event || null"
+        />
+      </label>
+      <label>
+        Продукция в плане мероприятий
+        <select name="plan" [(ngModel)]="draft.inProductionPlan">
+          <option [ngValue]="null">Неизвестно</option>
+          <option [ngValue]="true">В плане</option>
+          <option [ngValue]="false">Не в плане</option>
+        </select>
+      </label>
+      <label>
+        Начало потока
+        <input name="start" [(ngModel)]="draft.durationStart" />
+      </label>
+      <label>
+        Окончание потока
+        <input name="end" [(ngModel)]="draft.durationEnd" />
+      </label>
+      <label>
+        Источник длительности
+        <input name="durationSource" [(ngModel)]="draft.durationEvidence.source" />
+      </label>
+      <label>
+        Источник плана
+        <input name="planSource" [(ngModel)]="draft.planEvidence.source" />
+      </label>
+      <label>
+        Ожидания включены в срок
+        <select name="waiting" [(ngModel)]="draft.includesWaiting">
+          <option [ngValue]="null">Неизвестно</option>
+          <option [ngValue]="true">Да</option>
+          <option [ngValue]="false">Нет</option>
+        </select>
+      </label>
+    </div>
+    <div class="callout">
+      <strong>Сохраняйте источник каждого показателя</strong>
+      <p>
+        Календарная длительность включает движение продукции и ожидание, а маршрут — время отдельных
+        операций.
+      </p>
+    </div>
+    <div class="page-actions">
+      <a class="text-button" routerLink="/products">Отмена</a>
+      <button class="primary" [disabled]="!store.writable() || form.invalid">
+        Сохранить и пересчитать
+      </button>
+    </div>
+  </form>
+} @else {
+  <div class="empty">Продукция не найдена.</div>
+}

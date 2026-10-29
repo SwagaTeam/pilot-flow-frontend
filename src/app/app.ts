@@ -17,11 +17,15 @@ export class App {
   readonly menuOpen = signal(false);
   readonly groups = [
   {
-    "title": "Анализы",
+    "title": "Данные предприятия",
     "items": [
       {
-        "path": "/connection",
-        "label": "Подключение"
+        "path": "/preparation",
+        "label": "Подготовка"
+      },
+      {
+        "path": "/products",
+        "label": "Продукция"
       }
     ]
   }

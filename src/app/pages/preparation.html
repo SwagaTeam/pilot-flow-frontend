@@ -1,0 +1,178 @@
+<pf-page-heading
+  title="Подготовка анализа"
+  subtitle="Укажите периоды и источники: они будут видны в расчётах и документах."
+/>
+<form #form="ngForm" (ngSubmit)="next()">
+  <div class="form-grid">
+    <label>
+      Предприятие
+      <input
+        name="enterprise"
+        [(ngModel)]="draft.enterpriseName"
+        maxlength="300"
+        placeholder="Название предприятия"
+      />
+    </label>
+    <label>
+      Общая выручка, ₽
+      <input
+        name="revenue"
+        inputmode="decimal"
+        pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+        [(ngModel)]="draft.totalRevenue"
+        (ngModelChange)="draft.totalRevenue = $event || null"
+      />
+      <small>Весь объём предприятия, включая продукцию вне сравнения. В рублях.</small>
+    </label>
+    @for (period of periods; track period.key) {
+      <div class="field">
+        <span>{{ period.label }}</span>
+        <div class="date-range">
+          <input
+            type="date"
+            [name]="period.key + 'Start'"
+            [attr.aria-label]="period.label + ': начало'"
+            [ngModel]="draft[period.key]?.start"
+            (ngModelChange)="setDate(period.key, 'start', $event)"
+          />
+          <span>—</span>
+          <input
+            type="date"
+            [name]="period.key + 'End'"
+            [attr.aria-label]="period.label + ': окончание'"
+            [ngModel]="draft[period.key]?.end"
+            (ngModelChange)="setDate(period.key, 'end', $event)"
+          />
+        </div>
+        <small>{{ period.hint }}</small>
+      </div>
+    }
+    <label class="span-2">
+      Источник финансовых данных
+      <input
+        name="source"
+        [(ngModel)]="draft.revenueEvidence.source"
+        maxlength="2000"
+        placeholder="Документ, лист и дата"
+      />
+    </label>
+  </div>
+  <h2>Участники анализа</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Роль</th>
+          <th>Участник анализа</th>
+          <th>Должность</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (person of draft.participants; track $index; let index = $index) {
+          <tr>
+            <td>
+              <select [name]="'role' + index" [(ngModel)]="person.role" aria-label="Роль участника">
+                <option value="operator">Оператор</option>
+                <option value="protocolPreparer">Составитель протокола</option>
+                <option value="decisionMaker">Принимает решение</option>
+                <option value="specialist">Специалист</option>
+              </select>
+            </td>
+            <td>
+              <input
+                [name]="'name' + index"
+                [(ngModel)]="person.fullName"
+                aria-label="ФИО участника"
+              />
+            </td>
+            <td>
+              <input
+                [name]="'position' + index"
+                [(ngModel)]="person.position"
+                aria-label="Должность"
+              />
+            </td>
+            <td>
+              <button
+                type="button"
+                class="text-button"
+                (click)="draft.participants.splice(index, 1)"
+                aria-label="Убрать участника"
+              >
+                Убрать
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4" class="muted">Участники ещё не добавлены.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <button
+    type="button"
+    class="text-button add-link"
+    (click)="draft.participants.push({ fullName: null, position: null, role: 'specialist' })"
+  >
+    + Добавить участника
+  </button>
+  <details>
+    <summary>Дополнительные сведения</summary>
+    <div class="form-grid">
+      <label>
+        Название анализа
+        <input required name="title" [(ngModel)]="draft.title" />
+      </label>
+      <label>
+        Дата начала проекта
+        <input
+          type="date"
+          name="projectStartDate"
+          [(ngModel)]="draft.projectStartDate"
+          (ngModelChange)="draft.projectStartDate = $event || null"
+        />
+      </label>
+      <label>
+        Регион
+        <input name="region" [(ngModel)]="draft.region" />
+      </label>
+      <label>
+        Вид деятельности
+        <input name="activity" [(ngModel)]="draft.activity" />
+      </label>
+      <label>
+        ИНН
+        <input
+          name="inn"
+          [(ngModel)]="draft.enterpriseInn"
+          (ngModelChange)="draft.enterpriseInn = $event || null"
+          pattern="([0-9]{10}|[0-9]{12})"
+        />
+      </label>
+      <label>
+        Основание учёта
+        <input name="basis" [(ngModel)]="draft.accountingBasis" />
+      </label>
+    </div>
+  </details>
+  <div class="page-actions">
+    <span class="muted">
+      {{
+        store.api.mode() === 'demo'
+          ? 'Учебный пример · изменения не сохраняются'
+          : 'Данные сохранятся при переходе'
+      }}
+    </span>
+    <button
+      class="primary"
+      [disabled]="
+        form.invalid || store.saving() || (store.api.mode() === 'live' && !store.writable())
+      "
+    >
+      Перейти к продукции
+    </button>
+  </div>
+</form>

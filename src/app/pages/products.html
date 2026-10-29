@@ -1,0 +1,127 @@
+<pf-page-heading
+  title="Продукция предприятия"
+  subtitle="Финансовые данные за выбранный период. Откройте позицию, чтобы проверить источники и показатели."
+/>
+@if (store.evaluation(); as evaluation) {
+  <div
+    class="callout"
+    [class.success]="evaluation.remainderRevenue === '0'"
+    [class.warning]="evaluation.remainderRevenue !== '0'"
+  >
+    <strong>
+      Выручка сверена: {{ evaluation.reconciledRevenue | decimal: true }} из
+      {{ store.version()?.data?.totalRevenue | decimal: true }} млн ₽
+    </strong>
+    <p>
+      {{ store.products().length }} позиций. Неучтённый остаток —
+      {{ evaluation.remainderRevenue | decimal: true }} млн ₽.
+    </p>
+  </div>
+}
+<div class="toolbar">
+  <label class="search">
+    Поиск по продукции
+    <input
+      placeholder="Название или код"
+      [ngModel]="query()"
+      (ngModelChange)="query.set($event); page.set(0)"
+    />
+  </label>
+  <label>
+    Полнота данных
+    <select [ngModel]="filter()" (ngModelChange)="filter.set($event); page.set(0)">
+      <option value="all">Все позиции</option>
+      <option value="complete">Данные заполнены</option>
+      <option value="incomplete">Неполные данные</option>
+    </select>
+  </label>
+  <a class="button" routerLink="/products/new">+ Добавить продукцию</a>
+</div>
+<div class="table-scroll">
+  <table class="products-table">
+    <thead>
+      <tr>
+        <th>Номенклатура</th>
+        <th class="number">
+          Выручка,
+          <br />
+          млн ₽
+        </th>
+        <th class="number">
+          Сырьё,
+          <br />
+          млн ₽
+        </th>
+        <th class="number">
+          Марж. доход,
+          <br />
+          млн ₽
+        </th>
+        <th>Данные</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of visible(); track product.id) {
+        <tr>
+          <td>
+            <a class="row-link" [routerLink]="['/products', product.id]">
+              {{ product.data.name }}
+              <small>{{ product.data.productCode || 'Открыть исходные данные' }}</small>
+            </a>
+          </td>
+          <td class="number">{{ product.data.revenue | decimal: true }}</td>
+          <td class="number">{{ product.data.rawMaterialCost | decimal: true }}</td>
+          <td class="number">{{ row(product.id)?.marginIncome | decimal: true }}</td>
+          <td>
+            <span
+              class="badge"
+              [class.good]="product.completeness === 'complete'"
+              [class.caution]="product.completeness !== 'complete'"
+            >
+              {{ product.completeness === 'complete' ? 'Заполнены' : 'Нужна проверка' }}
+            </span>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5">
+            <div class="empty">
+              <h2>
+                {{
+                  store.products().length ? 'Ничего не найдено' : 'Добавьте продукцию предприятия'
+                }}
+              </h2>
+              <p>
+                {{
+                  store.products().length
+                    ? 'Попробуйте другое название или измените фильтр.'
+                    : 'Начните с перечня продукции, выручки и сырьевой себестоимости.'
+                }}
+              </p>
+              <a class="button" routerLink="/products/new">Добавить продукцию</a>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="pagination">
+  <span>Показано {{ visible().length }} из {{ filtered().length }} позиций</span>
+  <div>
+    <button class="text-button" [disabled]="page() === 0" (click)="page.set(page() - 1)">
+      ← Назад
+    </button>
+    <button
+      class="text-button"
+      [disabled]="(page() + 1) * 10 >= filtered().length"
+      (click)="page.set(page() + 1)"
+    >
+      Далее →
+    </button>
+  </div>
+</div>
+<div class="page-actions">
+  <a class="text-button" routerLink="/validation">Проверить исходные данные</a>
+  <a class="button primary" routerLink="/routes">Перейти к маршрутам</a>
+</div>
