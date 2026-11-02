@@ -1,0 +1,79 @@
+<pf-page-heading
+  title="Назначение продукции"
+  [subtitle]="store.productName(id) + '. Выберите новое назначение.'"
+/>
+<div class="callout">
+  <strong>Маршрут позиции: {{ routeLabel() }}</strong>
+  <p>
+    Проверяется последовательность, включая повторения. Позиция может входить только в одно
+    семейство.
+  </p>
+</div>
+<h2>Существующие семейства</h2>
+<div class="table-scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Семейство</th>
+        <th>Проверка совместимости</th>
+        <th>Действие</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (option of options()?.options; track option.familyId) {
+        <tr>
+          <td>{{ store.familyName(option.familyId) }}</td>
+          <td>
+            {{ compatibility(option) }}
+            <pf-issues [issues]="option.issues" />
+            @if (store.familyOf(id)?.id === option.familyId) {
+              <small>Текущее семейство продукции</small>
+            }
+          </td>
+          <td>
+            @if (option.canAssign) {
+              <button
+                class="text-button"
+                [disabled]="!store.writable()"
+                (click)="assign(option.familyId)"
+              >
+                Назначить в «{{ store.familyName(option.familyId) }}»
+              </button>
+            } @else {
+              <span class="muted">Недоступно</span>
+            }
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="3">Варианты назначения пока не загружены.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+@if (options()?.canCreateSeparateFamily) {
+  <div class="inline-action">
+    <a class="button primary" routerLink="/families/new" [queryParams]="{ product: id }">
+      Создать отдельное семейство
+    </a>
+    <span class="muted">
+      Название, границы и пояснение разделения задаются на следующем экране.
+    </span>
+  </div>
+}
+<div class="callout warning">
+  <strong>Ручное разделение — проектное предложение</strong>
+  <p>
+    Совпадение маршрутов предполагает общую группу. Разделение требует пояснения; правила его
+    подтверждения ещё согласуются.
+  </p>
+</div>
+<div class="page-actions">
+  <a class="text-button" routerLink="/families">Вернуться к семействам</a>
+  @if (store.familyOf(id)) {
+    <button class="text-button" [disabled]="!store.writable()" (click)="assign(null)">
+      Исключить из текущего семейства
+    </button>
+  }
+</div>

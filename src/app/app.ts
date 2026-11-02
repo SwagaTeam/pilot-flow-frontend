@@ -26,6 +26,14 @@ export class App {
       {
         "path": "/products",
         "label": "Продукция"
+      },
+      {
+        "path": "/routes",
+        "label": "Маршруты"
+      },
+      {
+        "path": "/families",
+        "label": "Семейства"
       }
     ]
   }

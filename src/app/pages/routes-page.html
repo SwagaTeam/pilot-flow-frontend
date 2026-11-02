@@ -1,0 +1,179 @@
+@if (id) {
+  <a class="back-link" routerLink="/routes">← Маршруты продукции</a>
+  <pf-page-heading title="Маршрут продукции" [subtitle]="store.productName(id)" />
+  <div class="callout">
+    <strong>Порядок и повторения операций имеют значение</strong>
+    <p>
+      Укажите рабочее место и длительность каждого вхождения. Одна операция может встречаться
+      несколько раз.
+    </p>
+  </div>
+  @if (route(); as route) {
+    <form #form="ngForm" (ngSubmit)="save()">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Операция</th>
+              <th>Рабочее место</th>
+              <th>Длительность, ч</th>
+              <th>Порядок</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (step of route.steps; track step.occurrenceId; let i = $index) {
+              <tr>
+                <td>{{ i + 1 }}</td>
+                <td>
+                  <select
+                    required
+                    [name]="'operation' + i"
+                    [(ngModel)]="step.operationId"
+                    aria-label="Операция"
+                  >
+                    @for (operation of store.operations(); track operation.id) {
+                      <option [value]="operation.id">{{ operation.data.name }}</option>
+                    }
+                  </select>
+                </td>
+                <td>
+                  <input
+                    [name]="'workplace' + i"
+                    [(ngModel)]="step.workplaceName"
+                    [placeholder]="'По справочнику'"
+                    aria-label="Рабочее место"
+                  />
+                </td>
+                <td>
+                  <input
+                    [name]="'duration' + i"
+                    inputmode="decimal"
+                    pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+                    [(ngModel)]="step.durationHours"
+                    (ngModelChange)="step.durationHours = $event || null"
+                    placeholder="Неизвестно"
+                    aria-label="Длительность операции"
+                  />
+                </td>
+                <td class="nowrap">
+                  <button
+                    type="button"
+                    class="icon-button"
+                    aria-label="Переместить выше"
+                    [disabled]="i === 0"
+                    (click)="move(i, -1)"
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    class="icon-button"
+                    aria-label="Переместить ниже"
+                    [disabled]="i === route.steps.length - 1"
+                    (click)="move(i, 1)"
+                  >
+                    ↓
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="text-button" (click)="remove(i)">Убрать</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <button
+        type="button"
+        class="text-button add-link"
+        [disabled]="!store.operations().length"
+        (click)="add()"
+      >
+        + Добавить операцию
+      </button>
+      <div class="page-actions">
+        <a class="text-button" routerLink="/routes">Отмена</a>
+        <button class="primary" [disabled]="!store.writable() || form.invalid">
+          Сохранить маршрут
+        </button>
+      </div>
+    </form>
+  } @else {
+    <p>{{ loading() ? 'Загружаем маршрут…' : 'Маршрут недоступен.' }}</p>
+  }
+} @else {
+  <pf-page-heading
+    title="Маршруты продукции"
+    subtitle="Проверьте состав и последовательность операций для каждой позиции."
+  />
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Продукция</th>
+          <th>Семейство</th>
+          <th>Время маршрута, ч</th>
+          <th>Календарные дни</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of store.products(); track product.id) {
+          <tr>
+            <td>{{ product.data.name }}</td>
+            <td>{{ store.familyOf(product.id)?.data?.name || 'Не назначено' }}</td>
+            <td>{{ duration(product.id) | decimal }}</td>
+            <td>{{ product.data.calendarDurationDays | decimal }}</td>
+            <td><a [routerLink]="['/routes', product.id]">Открыть маршрут</a></td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5">
+              Сначала
+              <a routerLink="/products/new">добавьте продукцию</a>
+              .
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <details>
+    <summary>Справочник операций · {{ store.operations().length }}</summary>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Операция</th>
+            <th>Рабочее место</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (operation of store.operations(); track operation.id) {
+            <tr>
+              <td>{{ operation.data.name }}</td>
+              <td>{{ operation.data.workplaceName || 'Не указано' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <form class="toolbar" #opForm="ngForm" (ngSubmit)="addOperation()">
+      <label>
+        Новая операция
+        <input name="operationName" required [(ngModel)]="operationName" />
+      </label>
+      <label>
+        Рабочее место
+        <input name="workplace" [(ngModel)]="workplace" />
+      </label>
+      <button class="button" [disabled]="!store.writable() || opForm.invalid">Добавить</button>
+    </form>
+  </details>
+  <div class="page-actions">
+    <a class="text-button" routerLink="/matrix/operations">Матрица операций</a>
+    <a class="button primary" routerLink="/families">Перейти к семействам</a>
+  </div>
+}

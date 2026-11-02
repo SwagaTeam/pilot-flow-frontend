@@ -1,0 +1,162 @@
+@if (id) {
+  <a class="back-link" routerLink="/families">← Подтверждение семейств</a>
+  <pf-page-heading
+    [title]="id === 'new' ? 'Отдельное семейство для продукции' : 'Семейство «' + draft.name + '»'"
+    subtitle="Проверьте состав продукции, границы потока и основание группировки."
+  />
+  <form #form="ngForm" (ngSubmit)="save()">
+    <label>
+      Название семейства
+      <input name="name" required maxlength="300" [(ngModel)]="draft.name" />
+    </label>
+    @if (family) {
+      <h2>Продукция в семействе</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Номенклатура</th>
+              <th>План мероприятий</th>
+              <th>Календарные дни</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (productId of family.productIds; track productId) {
+              <tr>
+                <td>{{ store.productName(productId) }}</td>
+                <td>См. исходные данные</td>
+                <td><a [routerLink]="['/products', productId]">Открыть данные</a></td>
+                <td><a [routerLink]="['/assignments', productId]">Изменить назначение</a></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+    <div class="form-grid section">
+      <label>
+        Начало потока
+        <input name="start" [(ngModel)]="draft.startBoundary" />
+      </label>
+      <label>
+        Окончание потока
+        <input name="end" [(ngModel)]="draft.endBoundary" />
+      </label>
+      <label class="span-2">
+        Основание объединения или разделения
+        <textarea name="reason" rows="3" [(ngModel)]="draft.compositionReason"></textarea>
+      </label>
+      <label class="span-2">
+        Источник подтверждения
+        <input name="source" [(ngModel)]="draft.confirmationEvidence.source" />
+      </label>
+    </div>
+    <div class="callout">
+      <strong>Состав и границы потока проверяются вместе</strong>
+      <p>
+        Продукция входит только в одно семейство. После изменения состава подтверждение и зависимые
+        показатели нужно проверить повторно.
+      </p>
+    </div>
+    <label class="check-label">
+      <input
+        type="checkbox"
+        name="confirmed"
+        [(ngModel)]="draft.confirmed"
+        [disabled]="id === 'new'"
+      />
+      Состав, маршрут и границы семейства подтверждены
+    </label>
+    @if (id === 'new') {
+      <p class="muted">
+        Сначала создайте семейство и назначьте продукцию, затем подтвердите состав.
+      </p>
+    }
+    <div class="page-actions">
+      <a class="text-button" routerLink="/families">Отмена</a>
+      <button class="primary" [disabled]="!store.writable() || form.invalid">
+        {{ id === 'new' ? 'Создать семейство' : 'Сохранить и пересчитать' }}
+      </button>
+    </div>
+  </form>
+} @else {
+  <pf-page-heading
+    title="Подтверждение семейств"
+    subtitle="Объедините продукцию с одинаковым маршрутом и подтвердите границы каждого потока."
+  />
+  <div class="callout">
+    <strong>Семейство — кандидат на пилотный поток</strong>
+    <p>Проверьте порядок операций, состав продукции и различие длительности циклов.</p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Семейство и маршрут</th>
+          <th>Продукция</th>
+          <th>
+            Выручка,
+            <br />
+            млн ₽
+          </th>
+          <th>Разница циклов</th>
+          <th>Состояние</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (family of store.families(); track family.id) {
+          <tr>
+            <td>
+              <a class="row-link" [routerLink]="['/families', family.id]">
+                {{ family.data.name }}
+                <small>{{ routeNames(family) }}</small>
+              </a>
+            </td>
+            <td>{{ family.productIds.length }} поз.</td>
+            <td>{{ evaluation(family.id)?.revenue | decimal: true }}</td>
+            <td>{{ cycle(family.id)?.cycleDifferencePercent | decimal }} %</td>
+            <td>
+              <span
+                class="badge"
+                [class.good]="family.data.confirmed"
+                [class.caution]="!family.data.confirmed"
+              >
+                {{ family.data.confirmed ? 'Подтверждено' : 'Нужна проверка' }}
+              </span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5">Семейства ещё не созданы.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <h2>Назначение продукции</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Продукция</th>
+          <th>Семейство</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of store.products(); track product.id) {
+          <tr>
+            <td>{{ product.data.name }}</td>
+            <td>{{ store.familyOf(product.id)?.data?.name || 'Не назначено' }}</td>
+            <td><a [routerLink]="['/assignments', product.id]">Изменить назначение</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="page-actions">
+    <a class="text-button" routerLink="/matrix/families">Матрица семейств</a>
+    <a class="button primary" routerLink="/admission">Проверить допуск потоков</a>
+  </div>
+}

@@ -10,6 +10,20 @@ export const routes: Routes = [
     path: 'products/:id',
     loadComponent: () => import('./pages/product-editor').then((m) => m.ProductEditorPage),
   },
+  { path: 'routes', loadComponent: () => import('./pages/routes-page').then((m) => m.RoutesPage) },
+  {
+    path: 'routes/:id',
+    loadComponent: () => import('./pages/routes-page').then((m) => m.RoutesPage),
+  },
+  { path: 'families', loadComponent: () => import('./pages/families').then((m) => m.FamiliesPage) },
+  {
+    path: 'families/:id',
+    loadComponent: () => import('./pages/families').then((m) => m.FamiliesPage),
+  },
+  {
+    path: 'assignments/:id',
+    loadComponent: () => import('./pages/assignment').then((m) => m.AssignmentPage),
+  },
   {
     path: 'connection',
     loadComponent: () => import('./pages/connection').then((m) => m.ConnectionPage),
