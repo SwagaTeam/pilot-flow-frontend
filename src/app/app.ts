@@ -36,6 +36,19 @@ export class App {
         "label": "Семейства"
       }
     ]
+  },
+  {
+    "title": "Сопоставление",
+    "items": [
+      {
+        "path": "/admission",
+        "label": "Допуск"
+      },
+      {
+        "path": "/comparison",
+        "label": "Сравнение"
+      }
+    ]
   }
 ];
   constructor() {

@@ -1,0 +1,213 @@
+@if (kind === 'validation') {
+  <pf-page-heading
+    title="Проверка исходных данных"
+    subtitle="Причины неполноты и рекомендации получены из расчёта текущей версии анализа."
+  />
+  <pf-issues [issues]="store.validation()?.issues ?? []" />
+  @if (!store.validation()?.issues?.length) {
+    <div class="callout success">
+      <strong>Проверка пройдена</strong>
+      <p>В текущей версии нет замечаний к данным.</p>
+    </div>
+  }
+  <div class="page-actions">
+    <a class="text-button" routerLink="/products">Вернуться к продукции</a>
+    <a class="button primary" routerLink="/routes">Перейти к маршрутам</a>
+  </div>
+} @else if (kind === 'admission') {
+  <pf-page-heading
+    title="Допуск потоков"
+    subtitle="Перед сравнением проверяем долю выручки, план производства и календарную длительность."
+  />
+  <div class="callout">
+    <strong>Условия допуска</strong>
+    <p>
+      Доля выручки — не менее 10%, продукция включена в план, календарная длительность — не более 30
+      дней. Неизвестные данные требуют уточнения.
+    </p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Поток</th>
+          <th>Доля выручки</th>
+          <th>Календарные дни</th>
+          <th>Результат</th>
+          <th>Основание</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (family of store.evaluation()?.families; track family.familyId) {
+          <tr>
+            <td>
+              <a [routerLink]="['/families', family.familyId]">
+                {{ store.familyName(family.familyId) }}
+              </a>
+            </td>
+            <td>{{ family.revenueSharePercent | decimal }} %</td>
+            <td>{{ family.maxCalendarDurationDays | decimal }}</td>
+            <td>
+              <span
+                class="badge"
+                [class.good]="family.admission === 'admitted'"
+                [class.bad]="family.admission === 'excluded'"
+                [class.caution]="family.admission === 'unknown'"
+              >
+                {{ admission(family.admission) }}
+              </span>
+            </td>
+            <td>
+              @for (issue of family.issues; track $index) {
+                <div>{{ issue.message }}</div>
+              } @empty {
+                <span class="muted">Условия проверены</span>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <pf-issues [issues]="store.evaluation()?.issues ?? []" />
+  <div class="page-actions">
+    <a class="text-button" routerLink="/families">Вернуться к семействам</a>
+    <a class="button primary" routerLink="/comparison">Перейти к сравнению</a>
+  </div>
+} @else {
+  <pf-page-heading
+    [title]="store.evaluation()?.canRecommend ? 'Сравнение потоков' : 'Предварительное сравнение'"
+    subtitle="Шесть критериев. Баллы, места и возможность выбора определяются по данным текущего анализа."
+  />
+  @if (!store.evaluation()?.canRecommend) {
+    <div class="callout warning">
+      <strong>Рейтинг пока предварительный</strong>
+      <p>
+        Уточните отсутствующие данные. Известная сумма баллов не является окончательным результатом.
+      </p>
+    </div>
+  }
+  <div class="table-scroll">
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>Поток</th>
+          <th>
+            Доля
+            <br />
+            выручки
+          </th>
+          <th>
+            Маржи-
+            <br />
+            нальность
+          </th>
+          <th>
+            Рост
+            <br />
+            продаж
+          </th>
+          <th>Загрузка</th>
+          <th>
+            Тип
+            <br />
+            производства
+          </th>
+          <th>
+            Трудо-
+            <br />
+            ёмкость
+          </th>
+          <th>Баллы</th>
+          <th>Место</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (family of store.evaluation()?.families; track family.familyId) {
+          <tr [class.highlight-row]="family.rank === 1">
+            <td>
+              <a class="row-link" [routerLink]="['/metrics', family.familyId]">
+                {{ store.familyName(family.familyId) }}
+                <small>Показатели потока</small>
+              </a>
+            </td>
+            @for (score of family.scores; track score.criterion) {
+              <td>
+                <span [title]="score.explanation">
+                  {{ score.score === null ? '—' : (score.score | decimal) }}
+                </span>
+                <small>{{ scoreDescription(score) }}</small>
+              </td>
+            }
+            <td>
+              <button class="score-button" (click)="explanations.set(family)">
+                {{ (family.isProvisional ? family.knownScoreSum : family.totalScore) | decimal }}
+              </button>
+              @if (family.isProvisional) {
+                <small>{{ family.calculatedCriterionCount }} из 6</small>
+              }
+            </td>
+            <td>
+              <span [class.rank-one]="family.rank === 1">{{ family.rank ?? '—' }}</span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <strong>Как читать сравнение</strong>
+    <p>
+      Нажмите на сумму баллов, чтобы увидеть основания каждой оценки. Исключённые потоки не
+      ранжируются.
+    </p>
+  </div>
+  <div class="page-actions">
+    <a class="text-button" routerLink="/matrix/selection">Матрица выбора</a>
+    <a class="button primary" routerLink="/selection">Выбрать пилотный поток</a>
+  </div>
+}
+@if (explanations(); as family) {
+  <dialog
+    #scoreDialog
+    class="dialog"
+    aria-labelledby="scores-title"
+    (close)="explanations.set(null)"
+  >
+    <div class="dialog-heading">
+      <h2 id="scores-title">Основания оценки потока</h2>
+      <button class="icon-button" autofocus aria-label="Закрыть" (click)="closeDetails()">×</button>
+    </div>
+    <p>
+      {{ store.familyName(family.familyId) }} ·
+      {{ family.isProvisional ? 'Известная сумма: ' : 'Итого: '
+      }}{{ (family.isProvisional ? family.knownScoreSum : family.totalScore) | decimal }}
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Критерий</th>
+            <th>Баллы</th>
+            <th>Основание</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (score of family.scores; track score.criterion) {
+            <tr>
+              <td>{{ criterionNames[score.criterion] }}</td>
+              <td>
+                {{ score.status === 'notApplicable' ? 'Не применяется' : (score.score | decimal) }}
+              </td>
+              <td>
+                {{ score.explanation }}
+                <small>{{ score.evidence.source }}</small>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <button class="primary" (click)="closeDetails()">Понятно</button>
+  </dialog>
+}

@@ -1,0 +1,157 @@
+<a class="back-link" routerLink="/comparison">← Сравнение потоков</a>
+<pf-page-heading
+  [title]="'Показатели потока «' + store.familyName(id) + '»'"
+  subtitle="Неизвестное значение хранится отдельно от нулевого. Для каждого показателя укажите источник."
+/>
+@if (draft(); as draft) {
+  <form #form="ngForm" (ngSubmit)="save()">
+    <div class="form-grid">
+      <label>
+        Потенциал роста продаж, %
+        <input
+          name="growth"
+          inputmode="decimal"
+          pattern="-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+          [(ngModel)]="draft.salesGrowthPercent"
+          (ngModelChange)="draft.salesGrowthPercent = $event || null"
+          placeholder="Неизвестно"
+        />
+      </label>
+      <label>
+        Источник прогноза
+        <input name="growthSource" [(ngModel)]="draft.salesGrowthEvidence.source" />
+      </label>
+      <label>
+        Загрузка, %
+        <input
+          name="load"
+          inputmode="decimal"
+          pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+          [(ngModel)]="draft.loadPercent"
+          (ngModelChange)="
+            draft.loadPercent = $event || null; draft.loadActual = null; draft.loadCapacity = null
+          "
+          placeholder="Неизвестно"
+        />
+        <small>При ручном вводе процента прежние исходные значения загрузки очищаются.</small>
+      </label>
+      <label>
+        Источник загрузки
+        <input name="loadSource" [(ngModel)]="draft.loadEvidence.source" />
+      </label>
+      <label>
+        Тип производства
+        <select name="production" [(ngModel)]="draft.productionType">
+          <option [ngValue]="null">Неизвестно</option>
+          <option value="largeSeries">Крупносерийное</option>
+          <option value="mediumSeries">Среднесерийное</option>
+          <option value="smallSeries">Мелкосерийное</option>
+          <option value="project">Проектное</option>
+        </select>
+      </label>
+      <label>
+        Источник типа производства
+        <input name="productionSource" [(ngModel)]="draft.productionTypeEvidence.source" />
+      </label>
+    </div>
+    <h2>Трудоёмкость потока</h2>
+    <div class="form-grid">
+      <label>
+        Способ ввода
+        <select name="laborMode" [(ngModel)]="draft.laborMode">
+          <option value="manual">Готовое значение на единицу</option>
+          <option value="calculated">По прямым трудозатратам и выпуску</option>
+        </select>
+      </label>
+      <label>
+        Единица продукции
+        <input name="laborUnit" [(ngModel)]="draft.laborUnitCode" placeholder="piece" />
+      </label>
+      @if (draft.laborMode === 'manual') {
+        <label>
+          Человеко-часы
+          <input
+            name="labor"
+            inputmode="decimal"
+            pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+            [(ngModel)]="draft.laborHoursPerUnit"
+            (ngModelChange)="draft.laborHoursPerUnit = $event || null"
+            placeholder="Неизвестно"
+          />
+        </label>
+        <label>
+          На количество единиц
+          <input
+            name="base"
+            inputmode="decimal"
+            pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+            [(ngModel)]="draft.laborBaseQuantity"
+            (ngModelChange)="draft.laborBaseQuantity = $event || null"
+          />
+        </label>
+      } @else {
+        <label>
+          Прямые трудозатраты, человеко-часы
+          <input
+            name="hours"
+            inputmode="decimal"
+            pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+            [(ngModel)]="draft.directLaborHours"
+            (ngModelChange)="draft.directLaborHours = $event || null"
+          />
+        </label>
+        <label>
+          Объём выпуска
+          <input
+            name="output"
+            inputmode="decimal"
+            pattern="(0|[1-9][0-9]{0,17})(\.[0-9]{1,6})?"
+            [(ngModel)]="draft.outputQuantity"
+            (ngModelChange)="draft.outputQuantity = $event || null"
+          />
+        </label>
+      }
+      <label class="span-2">
+        Источник трудозатрат
+        <input name="laborSource" [(ngModel)]="draft.laborEvidence.source" />
+      </label>
+      <label class="span-2">
+        Причина пропуска
+        <input
+          name="missing"
+          [(ngModel)]="draft.laborEvidence.missingReason"
+          placeholder="Если данные отсутствуют, укажите причину"
+        />
+      </label>
+      <label class="span-2">
+        Подтверждение сопоставимости
+        <textarea
+          name="comparison"
+          rows="2"
+          [(ngModel)]="draft.comparabilityExplanation"
+        ></textarea>
+      </label>
+    </div>
+    <div class="callout warning">
+      <strong>При отсутствии данных балл не назначается</strong>
+      <p>
+        Сохраняется причина пропуска. Рейтинг станет окончательным после заполнения необходимых
+        показателей.
+      </p>
+    </div>
+    <div class="page-actions">
+      <a class="text-button" routerLink="/comparison">Отмена</a>
+      <button class="primary" [disabled]="!store.writable() || form.invalid">
+        Сохранить и пересчитать
+      </button>
+    </div>
+  </form>
+} @else {
+  <p>
+    {{
+      loading()
+        ? 'Загружаем показатели…'
+        : 'Показатели недоступны. Проверьте подключение и повторите загрузку.'
+    }}
+  </p>
+}

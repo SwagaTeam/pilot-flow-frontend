@@ -25,6 +25,25 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/assignment').then((m) => m.AssignmentPage),
   },
   {
+    path: 'admission',
+    data: { kind: 'admission' },
+    loadComponent: () => import('./pages/evaluation').then((m) => m.EvaluationPage),
+  },
+  {
+    path: 'comparison',
+    data: { kind: 'comparison' },
+    loadComponent: () => import('./pages/evaluation').then((m) => m.EvaluationPage),
+  },
+  {
+    path: 'validation',
+    data: { kind: 'validation' },
+    loadComponent: () => import('./pages/evaluation').then((m) => m.EvaluationPage),
+  },
+  {
+    path: 'metrics/:id',
+    loadComponent: () => import('./pages/metrics').then((m) => m.MetricsPage),
+  },
+  {
     path: 'connection',
     loadComponent: () => import('./pages/connection').then((m) => m.ConnectionPage),
   },
