@@ -1,0 +1,126 @@
+<pf-page-heading
+  title="Выбор пилотного потока"
+  subtitle="Рейтинг помогает принять решение. Окончательный выбор и его основания фиксируются отдельно."
+/>
+<form #form="ngForm" (ngSubmit)="save()">
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Выбор</th>
+          <th>Поток</th>
+          <th>Баллы</th>
+          <th>Место</th>
+          <th>Возможность выбора</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (family of store.evaluation()?.families; track family.familyId) {
+          <tr [class.highlight-row]="draft.familyId === family.familyId && draft.mode === 'ranked'">
+            <td>
+              <input
+                type="radio"
+                name="family"
+                [value]="family.familyId"
+                [(ngModel)]="draft.familyId"
+                (ngModelChange)="draft.mode = 'ranked'; draft.dominantProductId = null"
+                [disabled]="!family.canSelectRanked"
+                [attr.aria-label]="'Выбрать ' + store.familyName(family.familyId)"
+              />
+            </td>
+            <td>{{ store.familyName(family.familyId) }}</td>
+            <td>{{ family.totalScore | decimal }}</td>
+            <td>{{ family.rank ?? '—' }}</td>
+            <td>
+              {{
+                family.canSelectRanked
+                  ? family.rank === 1
+                    ? 'Рекомендуемый поток'
+                    : 'Требуется обоснование'
+                  : 'Недоступно'
+              }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <label class="section">
+    Обоснование выбора
+    <textarea
+      name="reason"
+      rows="4"
+      [(ngModel)]="draft.justification"
+      [required]="requiresReason()"
+      placeholder="Опишите причины выбора потока"
+    ></textarea>
+    <small>Обязательно для второго места и выбора одного из равных лидеров.</small>
+  </label>
+  <label class="section">
+    Решение руководителя
+    <input
+      name="managerReference"
+      [(ngModel)]="draft.managerDecisionReference"
+      placeholder="Номер, дата или ссылка на основание решения"
+    />
+  </label>
+  <details>
+    <summary>Проверка прямого выбора</summary>
+    <p class="muted">Основания и доступность каждого варианта проверяет сервер.</p>
+    @for (option of store.directOptions()?.options; track $index) {
+      <div class="direct-option">
+        <strong>
+          {{ store.familyName(option.familyId) }} ·
+          {{ option.mode === 'monoproduct' ? 'Монопродукт' : 'Доминирующая продукция' }}
+        </strong>
+        <pf-issues [issues]="option.issues" />
+        <button
+          type="button"
+          class="button"
+          [disabled]="option.status !== 'eligible'"
+          (click)="
+            draft.familyId = option.familyId;
+            draft.mode = option.mode;
+            draft.dominantProductId = option.dominantProductId
+          "
+        >
+          Выбрать напрямую
+        </button>
+      </div>
+    }
+  </details>
+  @if (draft.mode !== 'ranked') {
+    <div class="callout">
+      <strong>Выбран прямой способ выбора</strong>
+      <p>{{ store.familyName(draft.familyId) }}. Рейтинг не применяется.</p>
+    </div>
+    <label>
+      Источник основания
+      <input name="directSource" [(ngModel)]="draft.directBasisEvidence.source" />
+    </label>
+    <label>
+      Основание
+      <textarea name="directBasis" [(ngModel)]="draft.directBasisEvidence.basis"></textarea>
+    </label>
+  }
+  @if (requiresReason() && !draft.justification?.trim()) {
+    <div class="callout warning">
+      <strong>Добавьте обоснование выбора</strong>
+      <p>Без объяснения сохранить окончательный выбор нельзя.</p>
+    </div>
+  }
+  <div class="page-actions">
+    <a class="text-button" routerLink="/comparison">Вернуться к сравнению</a>
+    <button
+      class="primary"
+      [disabled]="
+        !store.writable() ||
+        !validChoice() ||
+        form.invalid ||
+        (requiresReason() && !draft.justification?.trim())
+      "
+    >
+      Сохранить выбор
+    </button>
+  </div>
+</form>

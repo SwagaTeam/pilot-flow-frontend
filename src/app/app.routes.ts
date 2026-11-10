@@ -44,6 +44,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/metrics').then((m) => m.MetricsPage),
   },
   {
+    path: 'selection',
+    loadComponent: () => import('./pages/selection').then((m) => m.SelectionPage),
+  },
+  {
     path: 'connection',
     loadComponent: () => import('./pages/connection').then((m) => m.ConnectionPage),
   },

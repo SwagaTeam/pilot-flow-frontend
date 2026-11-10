@@ -49,6 +49,15 @@ export class App {
         "label": "Сравнение"
       }
     ]
+  },
+  {
+    "title": "Итог",
+    "items": [
+      {
+        "path": "/selection",
+        "label": "Решение"
+      }
+    ]
   }
 ];
   constructor() {
