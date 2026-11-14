@@ -1,0 +1,138 @@
+<pf-page-heading
+  [title]="selected() ? 'Сохранённый комплект решения' : 'Документы решения'"
+  subtitle="Протокол и обе матрицы формируются из одной версии данных."
+/>
+@if (selected(); as decision) {
+  <div class="callout success">
+    <strong>Решение зафиксировано</strong>
+    <p>
+      {{ decision.createdAt | date: 'dd.MM.yyyy HH:mm' }} · {{ decision.createdByName }}.
+      Сохранённый комплект не изменяется при редактировании новых версий.
+    </p>
+    <p class="hash">SHA-256: {{ decision.snapshotSha256 }}</p>
+  </div>
+  <button class="text-button" (click)="selected.set(null)">Вернуться к текущей версии</button>
+}
+<div class="decision-summary">
+  <div>
+    <small>Выбранный поток</small>
+    <strong>{{ selectedName() }}</strong>
+  </div>
+  <div>
+    <small>Версия анализа</small>
+    <strong>
+      {{ selected()?.snapshot?.version?.versionNumber || store.version()?.versionNumber }}
+    </strong>
+  </div>
+  <div>
+    <small>Статус</small>
+    <span class="badge" [class.good]="selected() || store.validation()?.canFinalize">
+      {{
+        selected()
+          ? 'Зафиксировано'
+          : store.validation()?.canFinalize
+            ? 'Готово к фиксации'
+            : 'Черновик'
+      }}
+    </span>
+  </div>
+</div>
+<div class="document-list">
+  @for (file of files; track file.key) {
+    <div class="document-row">
+      <span class="document-icon" aria-hidden="true">▤</span>
+      <div>
+        <h2>{{ file.title }}</h2>
+        <p>{{ file.description }}</p>
+      </div>
+      @if (!selected()) {
+        <a [routerLink]="file.path">Открыть</a>
+      }
+      <button
+        class="text-button"
+        [disabled]="store.api.mode() === 'demo' || downloading()"
+        (click)="download(file.key)"
+      >
+        Скачать PDF
+      </button>
+    </div>
+  }
+</div>
+@if (!selected()) {
+  <pf-issues [issues]="store.validation()?.issues ?? []" />
+  <div
+    class="callout"
+    [class.success]="store.validation()?.canFinalize"
+    [class.warning]="!store.validation()?.canFinalize"
+  >
+    <strong>
+      {{
+        store.validation()?.canFinalize
+          ? 'Проект готов к передаче директору'
+          : 'Комплект требует проверки'
+      }}
+    </strong>
+    <p>
+      {{
+        store.validation()?.canFinalize
+          ? 'Проверьте реквизиты протокола и зафиксируйте согласованное решение.'
+          : 'Исправьте замечания выше и заполните реквизиты протокола.'
+      }}
+    </p>
+    <a routerLink="/protocol">Реквизиты протокола →</a>
+  </div>
+}
+@if (store.version()?.state === 'draft' && !selected()) {
+  <label class="check-label">
+    <input type="checkbox" [(ngModel)]="confirm" />
+    Решение согласовано. Зафиксировать неизменяемую версию.
+  </label>
+}
+<div class="page-actions">
+  <button
+    class="button"
+    [disabled]="store.api.mode() === 'demo' || downloading()"
+    (click)="download()"
+  >
+    {{ downloading() ? 'Формируем PDF…' : 'Скачать комплект PDF' }}
+  </button>
+  @if (!selected() && store.version()?.state === 'draft') {
+    <button
+      class="primary"
+      [disabled]="!store.writable() || !store.validation()?.canFinalize || !confirm"
+      (click)="finalize()"
+    >
+      Зафиксировать решение
+    </button>
+  }
+</div>
+@if (store.version()?.state === 'fixed') {
+  <form class="toolbar" #forkForm="ngForm" (ngSubmit)="fork()">
+    <label class="search">
+      Основание новой версии
+      <input name="reason" required [(ngModel)]="forkReason" />
+    </label>
+    <button
+      class="button"
+      [disabled]="forkForm.invalid || store.api.mode() === 'demo' || store.saving()"
+    >
+      Создать новый черновик
+    </button>
+  </form>
+}
+@if (decisions().length) {
+  <details>
+    <summary>Ранее сохранённые решения · {{ decisions().length }}</summary>
+    @for (decision of decisions(); track decision.id) {
+      <div class="document-row">
+        <div>
+          <strong>Версия {{ decision.snapshot.version.versionNumber }}</strong>
+          <p>{{ decision.createdAt | date: 'dd.MM.yyyy HH:mm' }} · {{ decision.createdByName }}</p>
+        </div>
+        <button class="text-button" (click)="selected.set(decision)">
+          Открыть сохранённый комплект
+        </button>
+      </div>
+    }
+  </details>
+}

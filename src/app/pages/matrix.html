@@ -1,0 +1,97 @@
+<a class="back-link" routerLink="/documents">← Документы решения</a>
+<pf-page-heading
+  [title]="
+    kind === 'families'
+      ? 'Матрица семейств'
+      : kind === 'operations'
+        ? 'Матрица операций'
+        : 'Матрица выбора'
+  "
+  subtitle="Данные текущей версии. Итоги и расчётные значения получены от сервера."
+/>
+@if (kind === 'selection') {
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Поток</th>
+          <th>Доля выручки, %</th>
+          <th>Маржинальность, %</th>
+          <th>Баллы</th>
+          <th>Место</th>
+          <th>Решение</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (family of store.evaluation()?.families; track family.familyId) {
+          <tr>
+            <td>{{ store.familyName(family.familyId) }}</td>
+            <td>{{ family.revenueSharePercent | decimal }}</td>
+            <td>{{ family.marginPercent | decimal }}</td>
+            <td>{{ family.totalScore | decimal }}</td>
+            <td>{{ family.rank ?? '—' }}</td>
+            <td>{{ store.selection()?.familyId === family.familyId ? 'Выбран' : '—' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+} @else if (kind === 'families') {
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Продукция</th>
+          <th>Семейство</th>
+          <th>Маржинальный доход, млн ₽</th>
+          <th>Маржинальность, %</th>
+          <th>Доля выручки, %</th>
+          <th>Время маршрута, ч</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of store.matrix()?.products; track row.productId) {
+          <tr>
+            <td>{{ store.productName(row.productId) }}</td>
+            <td>{{ store.familyName(row.familyId) }}</td>
+            <td>{{ row.marginIncome | decimal: true }}</td>
+            <td>{{ row.marginPercent | decimal }}</td>
+            <td>{{ row.revenueSharePercent | decimal }}</td>
+            <td>{{ row.routeDurationHours | decimal }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+} @else {
+  <div class="callout">
+    <strong>В ячейке показаны позиции операции в маршруте</strong>
+    <p>Повторные вхождения сохраняются: например, «2, 5» означает две отдельные операции.</p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Продукция</th>
+          @for (operation of store.operations(); track operation.id) {
+            <th>{{ operation.data.name }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of store.products(); track product.id) {
+          <tr>
+            <td>{{ product.data.name }}</td>
+            @for (operation of store.operations(); track operation.id) {
+              <td>{{ positions(product.id, operation.id) }}</td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+<div class="page-actions">
+  <a class="text-button" routerLink="/documents">К документам решения</a>
+  <a class="button primary" routerLink="/comparison">К сравнению потоков</a>
+</div>

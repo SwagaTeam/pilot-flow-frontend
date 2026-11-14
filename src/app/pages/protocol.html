@@ -1,0 +1,79 @@
+<a class="back-link" routerLink="/documents">← Документы решения</a>
+<pf-page-heading
+  title="Реквизиты протокола"
+  subtitle="Сведения будут включены в комплект решения. Печать документа не означает его утверждения."
+/>
+<form #form="ngForm" (ngSubmit)="save()">
+  <div class="form-grid">
+    <label>
+      Номер протокола
+      <input name="number" [(ngModel)]="draft.protocolNumber" />
+    </label>
+    <label>
+      Дата протокола
+      <input
+        type="date"
+        name="date"
+        [(ngModel)]="draft.protocolDate"
+        (ngModelChange)="draft.protocolDate = $event || null"
+      />
+    </label>
+    <label>
+      Номер соглашения
+      <input name="agreement" [(ngModel)]="draft.agreementNumber" />
+    </label>
+    <label>
+      Дата соглашения
+      <input
+        type="date"
+        name="agreementDate"
+        [(ngModel)]="draft.agreementDate"
+        (ngModelChange)="draft.agreementDate = $event || null"
+      />
+    </label>
+    <label>
+      Сторона предприятия
+      <input name="enterprise" [(ngModel)]="draft.enterpriseParty" />
+    </label>
+    <label>
+      Сторона партнёра
+      <input name="partner" [(ngModel)]="draft.partnerParty" />
+    </label>
+    <label class="span-2">
+      Место подписания
+      <input name="place" [(ngModel)]="draft.signingPlace" />
+    </label>
+  </div>
+  <h2>Составитель протокола</h2>
+  <div class="form-grid">
+    <label>
+      ФИО
+      <input name="preparedName" [(ngModel)]="draft.preparedBy.fullName" />
+    </label>
+    <label>
+      Должность
+      <input name="preparedPosition" [(ngModel)]="draft.preparedBy.position" />
+    </label>
+  </div>
+  <h2>Принимает решение</h2>
+  <div class="form-grid">
+    <label>
+      ФИО
+      <input name="approvedName" [(ngModel)]="draft.approvedBy.fullName" />
+    </label>
+    <label>
+      Должность
+      <input name="approvedPosition" [(ngModel)]="draft.approvedBy.position" />
+    </label>
+  </div>
+  <label class="section">
+    Выводы по выбору пилотного потока
+    <textarea rows="5" name="conclusions" [(ngModel)]="draft.conclusions"></textarea>
+  </label>
+  <div class="page-actions">
+    <a class="text-button" routerLink="/documents">Отмена</a>
+    <button class="primary" [disabled]="!store.writable() || form.invalid">
+      Сохранить реквизиты
+    </button>
+  </div>
+</form>

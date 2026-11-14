@@ -48,6 +48,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/selection').then((m) => m.SelectionPage),
   },
   {
+    path: 'documents',
+    loadComponent: () => import('./pages/documents').then((m) => m.DocumentsPage),
+  },
+  { path: 'protocol', loadComponent: () => import('./pages/protocol').then((m) => m.ProtocolPage) },
+  { path: 'matrix/:kind', loadComponent: () => import('./pages/matrix').then((m) => m.MatrixPage) },
+  {
     path: 'connection',
     loadComponent: () => import('./pages/connection').then((m) => m.ConnectionPage),
   },

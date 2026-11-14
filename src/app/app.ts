@@ -16,50 +16,30 @@ export class App {
   readonly url = signal(this.router.url);
   readonly menuOpen = signal(false);
   readonly groups = [
-  {
-    "title": "Данные предприятия",
-    "items": [
-      {
-        "path": "/preparation",
-        "label": "Подготовка"
-      },
-      {
-        "path": "/products",
-        "label": "Продукция"
-      },
-      {
-        "path": "/routes",
-        "label": "Маршруты"
-      },
-      {
-        "path": "/families",
-        "label": "Семейства"
-      }
-    ]
-  },
-  {
-    "title": "Сопоставление",
-    "items": [
-      {
-        "path": "/admission",
-        "label": "Допуск"
-      },
-      {
-        "path": "/comparison",
-        "label": "Сравнение"
-      }
-    ]
-  },
-  {
-    "title": "Итог",
-    "items": [
-      {
-        "path": "/selection",
-        "label": "Решение"
-      }
-    ]
-  }
-];
+    {
+      title: 'Данные предприятия',
+      items: [
+        { path: '/preparation', label: 'Подготовка' },
+        { path: '/products', label: 'Продукция' },
+        { path: '/routes', label: 'Маршруты' },
+        { path: '/families', label: 'Семейства' },
+      ],
+    },
+    {
+      title: 'Сопоставление',
+      items: [
+        { path: '/admission', label: 'Допуск' },
+        { path: '/comparison', label: 'Сравнение' },
+      ],
+    },
+    {
+      title: 'Итог',
+      items: [
+        { path: '/selection', label: 'Решение' },
+        { path: '/documents', label: 'Документы' },
+      ],
+    },
+  ];
   constructor() {
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (event instanceof NavigationEnd) {
